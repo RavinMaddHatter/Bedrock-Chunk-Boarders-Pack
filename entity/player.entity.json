@@ -107,9 +107,6 @@
 					"controller.render.chunk": "!variable.is_first_person && !variable.map_face_icon && !query.is_in_ui && (query.get_equipped_item_name(1) == 'firework_rocket' || query.get_equipped_item_name(1) == 'nautilus_shell')"
 				},
 				{
-					"controller.render.chunk": "!variable.is_first_person && !variable.map_face_icon && !query.is_in_ui && (query.get_equipped_item_name(1) == 'firework_rocket' || query.get_equipped_item_name(1) == 'nautilus_shell')"
-				},
-				{
 					"controller.render.player.first_person": "variable.is_first_person"
 				},
 				{
