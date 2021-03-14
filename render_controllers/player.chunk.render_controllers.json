@@ -10,7 +10,11 @@
 			"geometry": "geometry.chunk",
 			"textures": [
 				"Texture.chunk"
-			]
+			],
+			"ignore_lighting":true,
+			"is_hurt_color":{},
+			"on_fire_color":{},
+			"light_color_multiplier":1.5
 		}
 	}
 }

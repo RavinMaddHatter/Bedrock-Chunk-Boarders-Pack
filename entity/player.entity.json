@@ -26,9 +26,15 @@
 					"variable.is_holding_right = 0.0;",
 					"variable.is_blinking = 0.0;",
 					"variable.last_blink_time = 0.0;",
-					"variable.hand_bob = 0.0;"
+					"variable.hand_bob = 0.0;",
+					"variable.chunk_x = 0.0;",
+					"variable.chunk_y = 0.0;",
+					"variable.chunk_z = 0.0;"
 				],
 				"pre_animation": [
+					"variable.chunk_x = (8-math.mod(query.position(0),16) + (query.position(0) <= 0 ? -16))*16;",
+					"variable.chunk_y = (1.6-math.mod(query.position(1),16) + (query.position(1) <= 0 ? -16))*16;",
+					"variable.chunk_z = (-8+math.mod(query.position(2),16) + (query.position(2) <= 0 ? 16))*16;",
 					"variable.helmet_layer_visible = 1.0;",
 					"variable.leg_layer_visible = 1.0;",
 					"variable.boot_layer_visible = 1.0;",
@@ -97,7 +103,12 @@
 				"blink": "controller.animation.persona.blink"
 			},
 			"render_controllers": [
-				{"controller.render.chunk":"!variable.is_first_person && !variable.map_face_icon &&  !variable.is_paperdoll && query.get_equipped_item_name(1)!=''&& query.get_equipped_item_name(1)!='shield'&& query.get_equipped_item_name(1)!='arrow'&& query.get_equipped_item_name(1)!='totem'&& query.get_equipped_item_name(1)!='totem_of_undying'"},
+				{
+					"controller.render.chunk": "!variable.is_first_person && !variable.map_face_icon && !query.is_in_ui && (query.get_equipped_item_name(1) == 'firework_rocket' || query.get_equipped_item_name(1) == 'nautilus_shell')"
+				},
+				{
+					"controller.render.chunk": "!variable.is_first_person && !variable.map_face_icon && !query.is_in_ui && (query.get_equipped_item_name(1) == 'firework_rocket' || query.get_equipped_item_name(1) == 'nautilus_shell')"
+				},
 				{
 					"controller.render.player.first_person": "variable.is_first_person"
 				},
