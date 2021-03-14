@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.chunk": {
+			"materials": [
+				{
+					"*": "Material.chunk"
+				}
+			],
+			"geometry": "geometry.chunk",
+			"textures": [
+				"Texture.chunk"
+			]
+		}
+	}
+}
