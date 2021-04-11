@@ -2,8 +2,8 @@
 	"format_version": 2,
 	"header": {
 		"name": "Hatter's Chunk Pack",
-		"description": "This pack will show chunks when you have an item like a rocket or shell in your off hand.",
-		"uuid": "cadc461d-813f-4500-bd0e-3b49a8a47a48",
+		"description": "This pack will show chunks when you have an item like a rocket or shell in your off hand or by naming a dog chunky.",
+		"uuid": "3f501117-489f-4b4d-8393-a1dcbce3d51f",
 		"version": [
 			1,
 			0,
@@ -18,7 +18,7 @@
 	"modules": [
 		{
 			"type": "resources",
-			"uuid": "7c4ebba2-511c-4cfc-95e3-3562476763f4",
+			"uuid": "4f29a164-d81e-4bf2-89a7-6a800f8e993f",
 			"version": [
 				1,
 				0,
