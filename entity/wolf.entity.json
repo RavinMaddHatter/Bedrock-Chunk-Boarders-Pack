@@ -1,0 +1,88 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:wolf",
+      "materials": {
+        "default": "wolf",
+        "chunk": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/wolf/wolf",
+        "angry": "textures/entity/wolf/wolf_angry",
+        "tame": "textures/entity/wolf/wolf_tame",
+        "chunk": "textures/entity/chunk"
+      },
+      "geometry": {
+        "default": "geometry.wolf",
+        "chunk": "geometry.chunk"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.chunk_x = 0.0;",
+          "variable.chunk_y = 0.0;",
+          "variable.chunk_z = 0.0;"
+        ],
+        "pre_animation": [
+          "variable.chunk_x = (8-math.mod(query.position(0),16) + (query.position(0) <= 0 ? -16))*16;",
+					"variable.chunk_y = (1.6-math.mod(query.position(1),16) + (query.position(1) <= 0 ? -16))*16;",
+					"variable.chunk_z = (-8+math.mod(query.position(2),16) + (query.position(2) <= 0 ? 16))*16;",
+          "variable.body_shake_angle = 0.05 * query.frame_alpha + query.shake_angle;",
+          "variable.body_roll_progress = Math.clamp((variable.body_shake_angle - 0.16) / 1.8, 0, 1);",
+          "variable.body_rot_z = Math.sin(variable.body_roll_progress * 180) * Math.sin(variable.body_roll_progress * 1980) * 27;",
+          "variable.upper_body_roll_progress = Math.clamp((variable.body_shake_angle - 0.08) / 1.8, 0, 1);",
+          "variable.upper_body_rot_z = (Math.sin(variable.upper_body_roll_progress * 180) * Math.sin(variable.upper_body_roll_progress * 1980) * 27) - variable.body_rot_z;",
+          "variable.tail_roll_progress = Math.clamp((variable.body_shake_angle - 0.2) / 1.8, 0, 1);",
+          "variable.tail_rot_z = (Math.sin(variable.tail_roll_progress * 180) * Math.sin(variable.tail_roll_progress * 1980) * 27) - variable.body_rot_z;",
+          "variable.head_roll_progress = Math.clamp(variable.body_shake_angle / 1.8, 0, 1);",
+          "variable.head_rot_z = (Math.sin(variable.head_roll_progress * 180) * Math.sin(variable.head_roll_progress * 1980) * 27) - variable.body_rot_z;"
+        ],
+        "animate": [
+          "root",
+          "chunk",
+          "wolf_setup",
+          "wolf_look_at",
+          "wolf_tail_default",
+          "wolf_leg_default",
+          {
+            "wolf_baby_scaling": "query.is_baby"
+          },
+          {
+            "wolf_shaking": "query.is_shaking_wetness"
+          },
+          {
+            "wolf_sitting": "query.is_sitting"
+          },
+          {
+            "wolf_head_rot_z": "query.is_interested || query.is_shaking_wetness"
+          },
+          {
+            "wolf_angry": "query.is_angry"
+          }
+        ]
+      },
+      "animations": {
+        "chunk": "animation.chunk.locate",
+        "wolf_setup": "animation.wolf.setup",
+        "wolf_baby_scaling": "animation.wolf.baby_scaling",
+        "wolf_look_at": "animation.common.look_at_target",
+        "wolf_head_rot_z": "animation.wolf.head_rot_z",
+        "wolf_tail_default": "animation.wolf.tail_default",
+        "wolf_angry": "animation.wolf.angry",
+        "wolf_sitting": "animation.wolf.sitting",
+        "wolf_shaking": "animation.wolf.shaking",
+        "wolf_leg_default": "animation.wolf.leg_default"
+      },
+      "render_controllers": [
+        {
+          "controller.render.chunk": "query.get_name == 'chunky'"
+        },
+        "controller.render.wolf"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 4
+      }
+    }
+  }
+}
