@@ -3,11 +3,11 @@
 	"header": {
 		"name": "Hatter's Chunk Pack",
 		"description": "This pack will show chunks when you have an item like a rocket or shell in your off hand.",
-		"uuid": "cadc461d-813f-4500-bd0e-3b49a8a47a48",
+		"uuid": "22d4fe6f-e55f-4990-94bd-5be51e8db961",
 		"version": [
 			1,
 			0,
-			0
+			1
 		],
 		"min_engine_version": [
 			1,
@@ -18,11 +18,11 @@
 	"modules": [
 		{
 			"type": "resources",
-			"uuid": "7c4ebba2-511c-4cfc-95e3-3562476763f4",
+			"uuid": "8a439e23-0c90-42e3-963f-348e7f441abe",
 			"version": [
 				1,
 				0,
-				0
+				1
 			]
 		}
 	]
